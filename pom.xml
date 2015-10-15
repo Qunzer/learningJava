@@ -12,11 +12,13 @@
 
     <modules>
         <module>designPatterns</module>
+        <module>guavaExample</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>3.8.1</junit.version>
+        <guava.version>18.0</guava.version>
     </properties>
 
     <dependencyManagement>
@@ -26,6 +28,11 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
