@@ -1,4 +1,4 @@
-package com.javalearning.collection;
+package com.javalearning.guavaexample.collection;
 
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;

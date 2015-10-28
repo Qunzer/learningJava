@@ -1,4 +1,4 @@
-package com.javalearning.collection;
+package com.javalearning.guavaexample.collection;
 
 
 /**

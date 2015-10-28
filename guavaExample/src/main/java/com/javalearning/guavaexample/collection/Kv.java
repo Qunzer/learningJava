@@ -1,4 +1,4 @@
-package com.javalearning.collection;
+package com.javalearning.guavaexample.collection;
 
 /**
  * Created by renqun.yuan on 2015/8/12.

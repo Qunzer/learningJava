@@ -1,4 +1,4 @@
-package com.javalearning.concurrent;
+package com.javalearning.guavaexample.concurrent;
 
 import com.google.common.base.Throwables;
 import com.google.common.util.concurrent.*;
@@ -37,5 +37,7 @@ public class ExecutorExample {
         });
 
         System.out.println(submit.get());
+
+        listeningExecutorService.shutdown();
     }
 }

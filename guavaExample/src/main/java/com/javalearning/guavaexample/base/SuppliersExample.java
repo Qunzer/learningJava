@@ -1,4 +1,4 @@
-package com.javalearning.base;
+package com.javalearning.guavaexample.base;
 
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
