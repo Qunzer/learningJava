@@ -33,14 +33,14 @@ public class BookRepositoryTest {
         Book book = new Book();
         book.setId("1");
         book.setAuthors(Lists.newArrayList("ray", "yrq"));
-        book.setName("中国");
+        book.setName("java1");
         book.setPrice((double) 10);
         book.setPublishDate(new Date());
 
         Book book1 = new Book();
         book1.setId("2");
         book1.setAuthors(Lists.newArrayList("ray", "yrq"));
-        book1.setName("java");
+        book1.setName("java2");
         book1.setPrice((double) 11);
         book1.setPublishDate(new Date());
 

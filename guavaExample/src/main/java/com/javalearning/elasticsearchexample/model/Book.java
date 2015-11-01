@@ -2,6 +2,9 @@ package com.javalearning.elasticsearchexample.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldIndex;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.util.Date;
 import java.util.List;
@@ -14,6 +17,7 @@ import java.util.List;
 public class Book {
     @Id
     private String id;
+    @Field(type = FieldType.String, index = FieldIndex.not_analyzed)
     private String name;
     private Double price;
     private List<String> authors;
