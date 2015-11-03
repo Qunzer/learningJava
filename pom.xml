@@ -13,6 +13,7 @@
     <modules>
         <module>designPatterns</module>
         <module>guavaExample</module>
+        <module>questionInwork</module>
     </modules>
 
     <properties>
