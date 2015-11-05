@@ -32,7 +32,7 @@ public class SplitRange {
             rangeList.add(range);
             startId = startId + rangeSize;
             endId = endId + rangeSize;
-            if (endId >= maxId) {
+            if (startId <= maxId && endId >= maxId) {
                 endId = maxId;
                 Range<Integer> lastRange = Range.closed(startId, endId);
                 rangeList.add(lastRange);
@@ -43,11 +43,8 @@ public class SplitRange {
     }
 
     public static void main(String[] args) {
-        System.out.println(splitRange(1, 100009, 3));
-        System.out.println(splitRange(6, 100006, 3));
-        System.out.println(splitRange(3, 100007, 3));
-        System.out.println(splitRange(4, 100008, 3));
-        System.out.println(splitRange(5, 100009, 3));
-
+        System.out.println(splitRange(5, 8, 9));
+//        System.out.println(splitRange(13, 100009, 4));
+//        System.out.println(splitRange(9, 100009, 2));
     }
 }
