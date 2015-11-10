@@ -16,6 +16,7 @@
         <module>questionInwork</module>
         <module>apacheCommons</module>
         <module>stormexample</module>
+        <module>springmvcexample</module>
     </modules>
 
     <properties>
