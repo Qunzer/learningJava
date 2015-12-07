@@ -32,10 +32,16 @@
         <logback.version>1.0.13</logback.version>
         <servlet-api.version>2.5</servlet-api.version>
         <jstl.version>1.2</jstl.version>
+        <jdeferred-core.version>1.2.4</jdeferred-core.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.jdeferred</groupId>
+                <artifactId>jdeferred-core</artifactId>
+                <version>${jdeferred-core.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.storm</groupId>
                 <artifactId>storm-core</artifactId>
