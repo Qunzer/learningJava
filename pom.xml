@@ -17,6 +17,7 @@
         <module>apacheCommons</module>
         <module>stormexample</module>
         <module>springmvcexample</module>
+        <module>mybatisExample</module>
     </modules>
 
     <properties>

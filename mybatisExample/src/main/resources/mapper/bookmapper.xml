@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javalearning.dao.BookDao">
+    <insert id="insertBook" parameterType="Book" useGeneratedKeys="true" keyProperty="id">
+        INSERT into
+        book
+        (
+        name,
+        isbn_no,
+        price,
+        author,
+        publish_date)
+        VALUES
+        (
+          #{name},
+          #{isbnNo},
+          #{price},
+          #{author},
+          #{publishDate}
+        )
+    </insert>
+
+    <select id="selectBookById" parameterType="int" resultType="Book">
+      select
+      id as id,
+      name as name,
+      isbn_no as isbnNo,
+      price as price,
+      author as author,
+      publish_date as publishDate
+      from
+      book
+      where
+      id = #{id}
+    </select>
+
+    <resultMap id="bookMapResult" type="Book">
+        <result property="name" column="name"/>
+        <result property="isbnNo" column="isbn_no"/>
+        <result property="id" column="id"/>
+        <result property="price" column="price"/>
+        <result property="author" column="author"/>
+        <result property="publishDate" column="publish_date"/>
+    </resultMap>
+
+    <select id="selectBookByAuthor" parameterType="string" resultMap="bookMapResult">
+        SELECT
+        *
+        FROM
+        book
+        where
+        author = #{author}
+    </select>
+
+    <select id="selectBookCondition" parameterType="map" resultMap="bookMapResult">
+        SELECT * from book
+        <where>
+            <if test="author != null and author != ''">
+                author = #{author}
+            </if>
+            <if test="publishDate != null and publishDate != ''">
+                publish_date > #{publishDate}
+            </if>
+        </where>
+    </select>
+</mapper>
