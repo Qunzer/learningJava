@@ -25,7 +25,6 @@ public class SessionFactoryUtil {
                     Throwables.propagate(e);
                 }
                 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsReader);
-                System.out.println("初始化sqlSessionFactory");
                 return sqlSessionFactory;
             }
         });

@@ -58,11 +58,35 @@
         SELECT * from book
         <where>
             <if test="author != null and author != ''">
-                author = #{author}
+                and author = #{author}
             </if>
             <if test="publishDate != null and publishDate != ''">
-                publish_date > #{publishDate}
+                and publish_date >= #{publishDate}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
             </if>
         </where>
     </select>
+
+    <insert id="insertBookBatch">
+         INSERT into
+        book
+        (
+        name,
+        isbn_no,
+        price,
+        author,
+        publish_date)
+        VALUES
+        <foreach collection="books" item="book" separator=",">
+            (
+            #{book.name},
+            #{book.isbnNo},
+            #{book.price},
+            #{book.author},
+            #{book.publishDate}
+            )
+        </foreach>
+    </insert>
 </mapper>

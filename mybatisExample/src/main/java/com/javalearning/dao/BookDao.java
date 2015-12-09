@@ -1,6 +1,7 @@
 package com.javalearning.dao;
 
 import com.javalearning.model.Book;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -16,4 +17,6 @@ public interface BookDao {
     List<Book> selectBookByAuthor(String author);
 
     List<Book> selectBookCondition(Map<String, Object> params);
+
+    void insertBookBatch(@Param("books") List<Book> books);
 }

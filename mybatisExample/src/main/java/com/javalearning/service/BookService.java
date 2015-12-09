@@ -33,11 +33,24 @@ public class BookService {
         try (SqlSession sqlSession = sqlSessionFactorySupplier.get().openSession()) {
             BookDao mapper = sqlSession.getMapper(BookDao.class);
             mapper.insertBook(book);
+            sqlSession.commit();
             return book.getId();
         }
     }
 
-    public List<Book> queryBookByConditon(final Book book) {
+    public void insertBookBatch(List<Book> books) {
+        if (books == null || books.size() == 0) {
+            return;
+        }
+
+        try (SqlSession sqlSession = sqlSessionFactorySupplier.get().openSession()) {
+            BookDao mapper = sqlSession.getMapper(BookDao.class);
+            mapper.insertBookBatch(books);
+            sqlSession.commit();
+        }
+    }
+
+    public List<Book> queryBookByCondition(final Book book) {
         Map<String, Object> params = new HashMap<String, Object>() {
             {
                 put("author", book.getAuthor());
