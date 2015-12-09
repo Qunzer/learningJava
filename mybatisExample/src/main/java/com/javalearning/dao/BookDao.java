@@ -1,6 +1,8 @@
 package com.javalearning.dao;
 
 import com.javalearning.model.Book;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -19,4 +21,10 @@ public interface BookDao {
     List<Book> selectBookCondition(Map<String, Object> params);
 
     void insertBookBatch(@Param("books") List<Book> books);
+
+    String insert = "insert into book (name,isbn_no,price,author,publish_date) VALUES(#{name},#{isbnNo},#{price},#{author}, #{publishDate})";
+
+    @Insert(insert)
+    @Options(useGeneratedKeys = true)
+    Integer insertBookWithoutConfigFile(Book book);
 }

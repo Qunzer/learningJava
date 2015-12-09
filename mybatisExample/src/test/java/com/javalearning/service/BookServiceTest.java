@@ -88,4 +88,15 @@ public class BookServiceTest {
 
         bookService.insertBookBatch(books);
     }
+
+    @Test
+    public void testInsertBookWithoutConfigFile() {
+        Book book = new Book();
+        book.setPrice(new BigDecimal(50.50));
+        book.setPublishDate(new Date());
+        book.setIsbnNo("9787540467778");
+        book.setName("花千骨II");
+        book.setAuthor("果果");
+        bookService.insertBookWithoutConfigFile(book);
+    }
 }

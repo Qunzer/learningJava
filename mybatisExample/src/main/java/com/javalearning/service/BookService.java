@@ -71,4 +71,13 @@ public class BookService {
             return mapper.selectBookByAuthor(author);
         }
     }
+
+    public Integer insertBookWithoutConfigFile(Book book) {
+        try (SqlSession sqlSession = sqlSessionFactorySupplier.get().openSession()) {
+            BookDao mapper = sqlSession.getMapper(BookDao.class);
+            mapper.insertBookWithoutConfigFile(book);
+            sqlSession.commit();
+            return book.getId();
+        }
+    }
 }
