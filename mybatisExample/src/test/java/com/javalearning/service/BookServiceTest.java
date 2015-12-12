@@ -1,6 +1,7 @@
 package com.javalearning.service;
 
 import com.google.common.collect.Lists;
+import com.javalearning.dao.BookDaoOldWay;
 import com.javalearning.model.Book;
 import org.junit.Assert;
 import org.junit.Test;
@@ -98,5 +99,12 @@ public class BookServiceTest {
         book.setName("花千骨II");
         book.setAuthor("果果");
         bookService.insertBookWithoutConfigFile(book);
+    }
+
+    @Test
+    public void testOldWayDao() {
+        BookDaoOldWay bookDaoOldWay = new BookDaoOldWay();
+        Book book = bookDaoOldWay.queryBookById(6);
+        System.out.println(book);
     }
 }
