@@ -3,6 +3,7 @@ package com.spring.mvc.evnentnotfy;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by renqun.yuan on 2016/3/14.
@@ -11,9 +12,11 @@ import org.springframework.stereotype.Service;
 public class EventPublishService implements ApplicationEventPublisherAware {
     private ApplicationEventPublisher applicationEventPublisher;
 
+    @Transactional
     public void doSomething(String userName) {
         // do something
         applicationEventPublisher.publishEvent(new NotifyEvent(userName));
+        applicationEventPublisher.publishEvent(new TransactionNotifyEvent(userName));
     }
 
     /**
